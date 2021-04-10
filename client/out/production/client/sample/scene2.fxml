@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.Controller" prefHeight="400.0" prefWidth="600.0">
+<AnchorPane styleClass="bg" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.Controller" prefHeight="700" prefWidth="900">
     <Label layoutX="143.0" layoutY="14.0" text="This is scene 2"/>
-    <Button layoutX="210.0" layoutY="178.0" mnemonicParsing="false" onAction="#switchToScene1" text="Switch to scene 1"/>
+    <Button layoutX="210.0" layoutY="178.0" mnemonicParsing="false" onAction="#switchToScene1" text="Switch to scene 1" />
 </AnchorPane>

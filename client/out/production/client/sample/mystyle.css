@@ -1,0 +1,38 @@
+.bg{
+    -fx-background-color: linear-gradient(LightSlateGray, GhostWhite);
+}
+.gameName{
+    -fx-font-size: 15pt ;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(Silver,SlateGrey);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 50, 0.0, 0, 1);
+}
+.PlayGame{
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(Silver,SlateGrey);
+}
+
+.Demo{
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(Silver,SlateGrey);
+}
+
+.HelpMenu{
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(Silver,SlateGrey);
+}
+.Hide{
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(Silver,SlateGrey);
+}
+.helpText{
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+

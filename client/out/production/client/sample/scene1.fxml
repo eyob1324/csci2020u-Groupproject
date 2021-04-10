@@ -4,7 +4,20 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.Controller" prefHeight="400.0" prefWidth="600.0">
-    <Label layoutX="143.0" layoutY="14.0" text="This is scene 1"/>
-    <Button layoutX="210.0" layoutY="178.0" mnemonicParsing="false" onAction="#switchToScene2" text="Switch to scene 2"/>
+
+<?import javafx.scene.canvas.Canvas?>
+<AnchorPane styleClass="bg" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.Controller" prefHeight="400.0" prefWidth="500.0">
+
+    <Canvas id="mainCanvas" fx:id="mainCanvas" layoutX="100" layoutY="250" height="100" width="300"></Canvas>
+    <Label layoutX="100.0" layoutY="14.0" text="Rock Paper Scissors Game" styleClass="gameName"/>
+    <Button layoutX="150.0" layoutY="100.0" mnemonicParsing="false" onAction="#switchToScene2" text="Play Game" minWidth="200" styleClass="PlayGame"/>
+    <Button layoutX="150.0" layoutY="150.0" mnemonicParsing="false" onAction="#helpLable" text="Help Menu" minWidth="200" styleClass="HelpMenu"/>
+    <Button layoutX="150.0" layoutY="200.0" mnemonicParsing="false"  text="Demo" minWidth="200" styleClass="Demo"/>
+
+    <Label fx:id="lblSystemMessage" layoutX="105" layoutY="250" styleClass="helpText"/>
+    <Button fx:id="Hide" onAction="#hideLable" visible="false" styleClass="Hide"/>
+
+<!--    <Button fx:id="Hide1" onAction="#hideLable1" visible="false" styleClass="Hide"/>-->
+
+
 </AnchorPane>
