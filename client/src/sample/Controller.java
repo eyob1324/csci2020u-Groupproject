@@ -13,7 +13,11 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 import javafx.stage.Stage;
+
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.Socket;
 
 public class Controller {
     private Stage stage;
@@ -27,6 +31,15 @@ public class Controller {
     private javafx.scene.control.Label lblSystemMessage;
     @FXML private Canvas mainCanvas;
     @FXML public GraphicsContext gc;
+
+
+    private Socket socket = null;
+    private BufferedReader in = null;
+    private PrintWriter networkOut = null;
+    private BufferedReader networkIn = null;
+
+    public  static String SERVER_ADDRESS = "localhost";
+    public  static int    SERVER_PORT = 8080;
 
     public void initialize() {
 
@@ -43,6 +56,11 @@ public class Controller {
 
 
     public void switchToScene2(ActionEvent event) throws IOException {
+        try {
+            socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         Parent root = FXMLLoader.load(getClass().getResource("scene2.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -84,11 +102,11 @@ public class Controller {
         gc.clearRect(0, 0, mainCanvas.getWidth(), mainCanvas.getHeight());
     }
 //
-//    public void helpLable1(ActionEvent event){
-//        gc = mainCanvas.getGraphicsContext2D();
-//        Image image = new Image(getClass().getClassLoader().getResource("images/OT.png").toString());
-//        gc.drawImage(image, 0, 0, 50, 50);
-//    }
+    public void helpLable1(ActionEvent event){
+       gc = mainCanvas.getGraphicsContext2D();
+       Image image = new Image(getClass().getClassLoader().getResource("ducks.png").toString());
+        gc.drawImage(image, 0, 0, 50, 50);
+   }
 ////    private void drawImg(GraphicsContext gc) {
 ////        Image image = new Image(getClass().getClassLoader().getResource("images/paper.png").toString());
 ////        gc.drawImage(image, 0, 0, 50, 50);

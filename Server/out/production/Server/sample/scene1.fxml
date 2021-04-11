@@ -5,6 +5,5 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.Controller" prefHeight="400.0" prefWidth="600.0">
-    <Label layoutX="143.0" layoutY="14.0" text="This is scene 1"/>
-    <Button layoutX="210.0" layoutY="178.0" mnemonicParsing="false" onAction="#switchToScene2" text="Switch to scene 2"/>
+
 </AnchorPane>

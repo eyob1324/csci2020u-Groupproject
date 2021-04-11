@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<info>
+    <Student id = "100741394">
+        <name >EyobKeflinkiel</name>
+        <email>eyob.keflinkiel@ontariotechu.net</email>
+    </Student>
+    <software-description>
+        reading from xml file and then
+        writing it on a canvas.
+    </software-description>
+
+</info>
