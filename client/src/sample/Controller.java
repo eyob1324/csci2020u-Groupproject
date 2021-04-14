@@ -9,14 +9,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 
 public class Controller {
@@ -24,13 +24,24 @@ public class Controller {
     private Scene scene;
     private Parent root;
     @FXML
-    private javafx.scene.control.Button Hide;
+    private Button Hide;
     @FXML
-    private javafx.scene.control.Button Hide1;
+    private Button Hide1;
     @FXML
-    private javafx.scene.control.Label lblSystemMessage;
-    @FXML private Canvas mainCanvas;
-    @FXML public GraphicsContext gc;
+    private Label lblSystemMessage;
+    @FXML
+    private Label outcome;
+    @FXML
+    private Canvas mainCanvas;
+    @FXML
+    private Canvas Canvas2;
+    @FXML
+    public GraphicsContext gc;
+
+    @FXML
+    private Button Start;
+
+
 
 
     private Socket socket = null;
@@ -55,12 +66,8 @@ public class Controller {
     }
 
 
-    public void switchToScene2(ActionEvent event) throws IOException {
-        try {
-            socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void playgame(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("scene2.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -88,7 +95,7 @@ public class Controller {
     }
     private void drawRec(GraphicsContext gc) {
         gc.setFill(Color.LIGHTGRAY);
-        gc.fillRoundRect(0, 0, 300, 100, 10, 10);
+        gc.fillRoundRect(0, 0, 650, 300, 20, 20);
     }
 
     public void hideLable(ActionEvent event){
@@ -107,20 +114,99 @@ public class Controller {
        Image image = new Image(getClass().getClassLoader().getResource("ducks.png").toString());
         gc.drawImage(image, 0, 0, 50, 50);
    }
-////    private void drawImg(GraphicsContext gc) {
-////        Image image = new Image(getClass().getClassLoader().getResource("images/paper.png").toString());
-////        gc.drawImage(image, 0, 0, 50, 50);
-////    }
-////
-////    public void hideLable1(ActionEvent event){
-////        /*
-////         * Hides The Label and Hide button ones run
-////         */
-////
-////        //hides Hide Button
-////        Hide1.setVisible(false);
-////        //Clears canvas drawing
-////        gc.clearRect(0, 0, mainCanvas.getWidth(), mainCanvas.getHeight());
-////    }
+
+
+
+
+
+    public void rock(ActionEvent actionEvent) {
+
+
+        try {
+            networkOut = new PrintWriter(new BufferedOutputStream(socket.getOutputStream()));
+            networkOut.println("move" + " " + "1");
+            networkIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+            String message = networkIn.readLine();
+            String message2 = networkIn.readLine();
+            networkOut.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        try{
+            String message3 = networkIn.readLine();
+            System.out.println(message3);
+            showOutcome(message3);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void paper(ActionEvent actionEvent) {
+
+            try {
+                networkOut = new PrintWriter(new BufferedOutputStream(socket.getOutputStream()));
+                networkOut.println("move" + " " + "2");
+                networkIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                String message = networkIn.readLine();
+                String message2 = networkIn.readLine();
+                networkOut.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try{
+            String message3 = networkIn.readLine();
+            System.out.println(message3);
+            showOutcome(message3);
+            } catch (Exception e) {
+            e.printStackTrace();
+            }
+
+    }
+
+    public void scissors(ActionEvent actionEvent) {
+
+            try {
+                networkOut = new PrintWriter(new BufferedOutputStream(socket.getOutputStream()));
+                networkOut.println("move" + " " + "3");
+                networkIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                String message = networkIn.readLine();
+                String message2 = networkIn.readLine();
+                networkOut.flush();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try{
+                String message3 = networkIn.readLine();
+                System.out.println(message3);
+                showOutcome(message3);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+    }
+
+    public void Start(ActionEvent actionEvent) {
+        try {
+            socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+            Start.setVisible(false);
+    }
+
+
+    public void showOutcome(String message){
+        gc = Canvas2.getGraphicsContext2D();
+        drawRec(gc);
+        outcome.setText(message);
+    }
 
 }

@@ -61,7 +61,51 @@ public class ServerThread extends Thread{
     }
 
     protected boolean processCommand(String command, String arguments) {
+        if(command.equalsIgnoreCase("move")) {
 
+            System.out.println(arguments);
+            int random_int = (int)Math.floor(Math.random()*(3-1+1)+1);
+            System.out.println(random_int);
+            if (random_int == 1){
+                System.out.println("computer move Rock");
+                if(Integer.parseInt(arguments) == 1){
+                    System.out.println("Draw");
+                    out.println("Draw You picked Rock Computer Picked Rock");
+                }else if(Integer.parseInt(arguments) == 2){
+                    System.out.println("Win");
+                    out.println("Win You picked Paper Computer picked Rock");
+                }else if(Integer.parseInt(arguments) == 3){
+                    System.out.println("loss");
+                    out.println("loss you picked scissors Computer picked Rock");
+                }
+            }
+            else if(random_int == 2){
+                System.out.println("computer move paper");
+                if(Integer.parseInt(arguments) == 1){
+                    System.out.println("loss");
+                    out.println("loss you picked Rock computer picked paper");
+                }else if(Integer.parseInt(arguments) == 2){
+                    System.out.println("Draw");
+                    out.print("Draw you picked paper computer picked paper");
+                }else if(Integer.parseInt(arguments) == 3){
+                    System.out.println("Win");
+                    out.println("Win you picked scissors computer picked paper");
+                }
+            }else if(random_int == 3){
+                System.out.println("computer move scissors");
+                if(Integer.parseInt(arguments) == 1){
+                    System.out.println("win");
+                    out.println("Win you picked rock computer picked scissors");
+                }else if(Integer.parseInt(arguments) == 2){
+                    System.out.println("loss");
+                    out.println("loss you picked paper computer picked scissors");
+                }else if(Integer.parseInt(arguments) == 3){
+                    System.out.println("Draw");
+                    out.print("Draw you picked scissors computer picked scissors");
+
+                }
+            }
+        }
 
         return false;
     }

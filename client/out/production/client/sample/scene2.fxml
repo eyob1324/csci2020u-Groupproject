@@ -6,7 +6,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane styleClass="bg" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.Controller" prefHeight="700" prefWidth="900">
-    <Label layoutX="143.0" layoutY="14.0" text="This is scene 2"/>
-    <Button layoutX="210.0" layoutY="178.0" mnemonicParsing="false" onAction="#switchToScene1" text="Switch to scene 1" />
+<?import javafx.scene.canvas.Canvas?>
+<AnchorPane styleClass="bg" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.Controller" prefHeight="200" prefWidth="250">
+    <Button layoutX="230" layoutY="0" mnemonicParsing="false" onAction="#switchToScene1" text="Home Screen" styleClass="PlayGame"/>
+    <Canvas id="Canvas2" fx:id="Canvas2" layoutX="0" layoutY="250" height="100" width="350"></Canvas>
+    <Button fx:id="Start" layoutX="0" layoutY="0" mnemonicParsing="false" onAction="#Start" text="Start" styleClass="PlayGame"/>
+    <Button fx:id="PlayAgain" layoutX="100" layoutY="0" mnemonicParsing="false" onAction="#playgame" text="PlayAgain" styleClass="PlayGame"/>
+    <Button fx:id="rock" layoutX="100" layoutY="100" mnemonicParsing="false" onAction="#rock" text="rock" styleClass="PlayGame"/>
+    <Button fx:id="paper" layoutX="100" layoutY="200" mnemonicParsing="false" onAction="#paper" text="paper" styleClass="PlayGame"/>
+    <Button fx:id="scissors" layoutX="100" layoutY="150" mnemonicParsing="false" onAction="#scissors" text="scissors" styleClass="PlayGame"/>
+    <Label fx:id="outcome" layoutX="0" layoutY="250" styleClass="OutComeText"/>
 </AnchorPane>

@@ -35,4 +35,9 @@
     -fx-text-fill: white;
 }
 
+.OutComeText{
+ -fx-font-weight: bold;
+    -fx-text-fill: red;
+}
+
 
