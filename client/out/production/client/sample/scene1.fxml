@@ -8,7 +8,7 @@
 <?import javafx.scene.canvas.Canvas?>
 <AnchorPane styleClass="bg" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.Controller" prefHeight="400.0" prefWidth="500.0">
 
-    <Canvas id="mainCanvas" fx:id="mainCanvas" layoutX="100" layoutY="250" height="100" width="300"></Canvas>
+    <Canvas id="mainCanvas" fx:id="mainCanvas" layoutX="100" layoutY="250" height="100" width="370"></Canvas>
     <Label layoutX="100.0" layoutY="14.0" text="Rock Paper Scissors Game" styleClass="gameName"/>
     <Button layoutX="150.0" layoutY="100.0" mnemonicParsing="false" onAction="#playgame" text="Play Game" minWidth="200" styleClass="PlayGame"/>
     <Button layoutX="150.0" layoutY="150.0" mnemonicParsing="false" onAction="#helpLable" text="Help Menu" minWidth="200" styleClass="HelpMenu"/>

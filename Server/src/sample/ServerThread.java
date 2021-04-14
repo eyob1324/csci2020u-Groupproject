@@ -59,7 +59,16 @@ public class ServerThread extends Thread{
         }
         return processCommand(command, args);
     }
-
+    /*
+    When the client sends a command it comes in the format "move" + " "+ "1 <= number <=3" the number tells it
+    what move to use 1 being rock , 2 being paper , 3 being scissors.
+    Once the function has the players move it will randomly generate a number between 1 and 3 for its move
+    it then compares its number using the rock paper scissors rules to see if the client won,lost,or Drawed
+    rules
+    paper beats rock
+    rock beats scissors
+    scissors beat paper
+     */
     protected boolean processCommand(String command, String arguments) {
         if(command.equalsIgnoreCase("move")) {
 

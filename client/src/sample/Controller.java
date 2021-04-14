@@ -86,7 +86,10 @@ public class Controller {
         Hide.setVisible(true);
         lblSystemMessage.setText(
                 "Help Menu:" +
-                        "\nUploaded:"
+                        "\n Simple Rock paper Scissor game"+
+                        "\n you pick either rock,paper,or scissor"+
+                        "\n and the computer will randomly pick one"+
+                        "\n to play press start game and then start button"
         );
         //Creates Hide button
         Hide.setText("Hide Text");
