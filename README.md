@@ -29,9 +29,8 @@ This is a simple Rock paper Scissor where multiple poepl can vs a computer.
 3. course modules 
 
 # Video
-press the picture
 [<img src="https://img.youtube.com/vi/Dysa64vq0jY/maxresdefault.jpg" width="50%">](https://youtu.be/Dysa64vq0jY)
-
+1. press the picture
 
 # created by:
 Eyob Keflinkiel 10074139 , Fahad Bhatti 100749152 , Harry Masaun 100698147
