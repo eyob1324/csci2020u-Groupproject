@@ -115,7 +115,7 @@ public class ServerThread extends Thread{
                 }
             }
         }
-
+        out.flush();
         return false;
     }
 

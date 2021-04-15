@@ -55,7 +55,10 @@ public class Controller {
     public void initialize() {
 
     }
-
+    /*
+         switch to scence 1 is a function used to take the player back to
+         home screen.
+         */
     public void switchToScene1(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("scene1.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -65,7 +68,9 @@ public class Controller {
         stage.show();
     }
 
-
+    /*
+     playgame is a function used to change scenes to the game state
+     */
     public void playgame(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("scene2.fxml"));
@@ -75,6 +80,12 @@ public class Controller {
         scene.getStylesheets().add(Controller.class.getResource("mystyle.css").toExternalForm());
         stage.show();
     }
+    /*
+    helplabel is a button when pressed will explain how to play the game.
+    To do this it creates a canvas and then on the canvas a grey rectangle is drawn.
+    On the rectange we write a label to explain how the game is plated
+    It aslo creates a hide button when pressed will hide the canvas and text
+     */
     public void helpLable(ActionEvent event){
         gc = mainCanvas.getGraphicsContext2D();
         drawRec(gc);
@@ -96,11 +107,17 @@ public class Controller {
         Hide.setLayoutX(210);
         Hide.setLayoutY(350);
     }
+    /*
+    drawrec is used to draw a gray rectangle on a canvas when needed
+     */
     private void drawRec(GraphicsContext gc) {
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRoundRect(0, 0, 650, 300, 20, 20);
     }
 
+    /*
+    This function is used to hide the help menue text that comes on screen when you press the help menue button
+     */
     public void hideLable(ActionEvent event){
         /*
          * Hides The Label and Hide button ones run
@@ -112,15 +129,12 @@ public class Controller {
         gc.clearRect(0, 0, mainCanvas.getWidth(), mainCanvas.getHeight());
     }
 //
-    public void helpLable1(ActionEvent event){
-       gc = mainCanvas.getGraphicsContext2D();
-       Image image = new Image(getClass().getClassLoader().getResource("ducks.png").toString());
-        gc.drawImage(image, 0, 0, 50, 50);
-   }
 
-
-
-
+   /*
+        this function is used to tell the computer the players move it opens an output stream to tell the player's move
+        and then opens an input stream to find out how the game went
+        In this case the player's move was rock
+     */
 
     public void rock(ActionEvent actionEvent) {
 
@@ -145,8 +159,18 @@ public class Controller {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        networkOut.flush();
+        try {
+            networkIn.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+    /*
+        this function is used to tell the computer the players move it opens an output stream to tell the player's move
+        and then opens an input stream to find out how the game went
+        In this case the player's move was paper
+     */
 
     public void paper(ActionEvent actionEvent) {
 
@@ -168,8 +192,18 @@ public class Controller {
             } catch (Exception e) {
             e.printStackTrace();
             }
-
+            networkOut.flush();
+        try {
+            networkIn.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+    /*
+        this function is used to tell the computer the players move it opens an output stream to tell the player's move
+        and then opens an input stream to find out how the game went
+        In this case the player's move was scissors
+     */
 
     public void scissors(ActionEvent actionEvent) {
 
@@ -192,9 +226,16 @@ public class Controller {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
+            networkOut.flush();
+        try {
+            networkIn.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
+    /*
+    When the start button is pressed it makes a connection to the server
+     */
     public void Start(ActionEvent actionEvent) {
         try {
             socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
@@ -205,11 +246,18 @@ public class Controller {
             Start.setVisible(false);
     }
 
-
+    /*
+        @pram String message
+        outcom of the game ex: Draw You picked Rock Computer Picked Rock
+        When this function is called the outcome of the rock papers scissor games is sent to
+        and it puts it on the canvas
+    */
     public void showOutcome(String message){
         gc = Canvas2.getGraphicsContext2D();
         drawRec(gc);
         outcome.setText(message);
     }
+
+
 
 }
